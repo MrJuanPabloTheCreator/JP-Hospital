@@ -39,7 +39,7 @@ const SummaryInfo = () => {
     return (
         <div>
             <div className='flex bg-slate-300'>
-                <Image src={`/Screenshots/${formData?.photo_path}`} alt='Photo' className='rounded-lg w-40'/>
+                <img src={`/Screenshots/${formData?.photo_path}`} alt='Photo' className='rounded-lg w-40'/>
                 <div className='flex flex-col ml-5 text-black w-60'>
                     <h1 className='font-bold text-3xl'>Dr.{formData?.last_name}, {formData?.name}</h1>
                     <div className='font-medium text-md'>

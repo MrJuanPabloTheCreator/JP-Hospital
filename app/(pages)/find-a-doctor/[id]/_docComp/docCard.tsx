@@ -1,7 +1,6 @@
 import React from 'react'
 import DoctorAvailability from './docAvailability';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface Doctor {
     doctor_id: number,
@@ -26,7 +25,7 @@ const DoctorCard : React.FC<DoctorCardProps> = ({ data }) => {
             {data.map((item) => (
                 <div key={item.doctor_id} className="flex justify-between items-center p-10 bg-white rounded-lg w-[1000px] mb-2">
                     <div className='flex'>
-                            <Image src={`/Screenshots/${item.photo_path}`} alt='Photo' className='rounded-lg'/>
+                            <img src={`/Screenshots/${item.photo_path}`} alt='Photo' className='rounded-lg'/>
                         <div className='flex flex-col justify-center ml-5 text-black'>
                             <h1 className='font-bold text-3xl'>Dr.{item.last_name}, {item.name}</h1>
                             <div className='font-medium'>

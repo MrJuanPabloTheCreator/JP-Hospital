@@ -1,6 +1,5 @@
 "use client"
 
-import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface ImageSliderProps {
@@ -23,7 +22,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
       <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
         {images.map((image, index) => (
           <div key={index} className="flex-shrink-0 w-full">
-            <Image src={image} alt={`Slide ${index}`} className="object-cover w-full h-[390px] sm:h-[180px] md:h-[220px] lg:h-[320px] xl:h-[370px]"/> 
+            <img src={image} alt={`Slide ${index}`} className="object-cover w-full h-[390px] sm:h-[180px] md:h-[220px] lg:h-[320px] xl:h-[370px]"/> 
           </div>
         ))}
       </div>

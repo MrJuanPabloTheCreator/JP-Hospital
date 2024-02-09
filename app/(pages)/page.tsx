@@ -4,9 +4,9 @@ import ImageSlider from "./components/slider"
 
 const HomePage = () => {
   const images = [
-    'AdobeStock_661787170.jpeg',
-    'AdobeStock_526157669.jpeg',
-    'AdobeStock_516988312.jpeg',
+    '/AdobeStock_661787170.jpeg',
+    '/AdobeStock_526157669.jpeg',
+    '/AdobeStock_516988312.jpeg',
   ];
 
   return (
