@@ -8,9 +8,9 @@ const TestLayout = ({
     children: React.ReactNode;
 }) => {
   return (
-    <div className='h-full w-full'>
+    <div className='h-full'>
       <Navbar/>
-      <main className='pb-80 bg-custwhite'>
+      <main className='pb-80 bg-custwhite w-full'>
         {children} 
       </main>
       <Footer/>
