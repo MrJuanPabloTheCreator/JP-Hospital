@@ -3,8 +3,8 @@ const Footer = () => {
   return (
     <div className="bg-custgray py-10 px-5 text-gray-400 flex flex-col text-sm w-full">
       <h1 className="text-white text-lg font-bold flex justify-center">Explore JP Hospital</h1>
-      <div className="flex justify-center">
-        <div className="grid grid-cols-5 justify-center max-w-[1300px] border-b-2 border-gray-400 py-10">
+      <div className="flex flex-col 2xl:mx-[300px] lg:mx-[100px] md:mx-[50px]">
+        <div className="grid grid-cols-5 gap-2 justify-center border-b-2 border-gray-400 py-10">
           <div className="grid grid-rows-6 gap-2">
             <p className="text-white font-bold">Patient Care</p>
             <p>Conditions We Treat</p>
@@ -43,9 +43,7 @@ const Footer = () => {
             <p>JP University</p>
           </div>
         </div>
-      </div>
-      <div className="mx-72 mt-5">
-        <h1 className="text-white font-bold text-lg">JP Hospital</h1>
+        <h1 className="mt-5 text-white font-bold text-lg">JP Hospital</h1>
       </div>
     </div>
   )

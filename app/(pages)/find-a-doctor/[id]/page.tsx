@@ -78,7 +78,7 @@ const SearchPage = () => {
     return (
         <div className="flex flex-col">
             <div className="flex flex-col items-center justify-center">
-                <h1 className="flex text-4xl font-bold text-white bg-blue-950 mt-10 mb-5 pt-28 pb-20 w-full justify-center">{specialty}, {formData[0]?.city_name}</h1>
+                <h1 className="flex text-4xl font-bold text-white bg-blue-950 mt-10 mb-5 pt-28 pb-20 w-full justify-center">{specialty}, {formData[0]?.city_name}</h1>  
                 <DoctorCard data={formData}/>
             </div>
         </div>

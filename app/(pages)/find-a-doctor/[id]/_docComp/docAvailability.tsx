@@ -1,4 +1,5 @@
 import getAvailability from "@/app/actions/getDoctorAvailability";
+import { ChevronsLeft, ChevronsRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -50,11 +51,15 @@ const DoctorAvailability: React.FC<DoctorAvailabilityProps> = ({doctor_id}) => {
     }, [doctor_id, activeDate])
 
     return (
-        <div>
-            <div className="flex justify-between w-64 ml-2">
-                <button className="bg-pink-700 text-white px-2 py-1 rounded-lg" onClick={lessDay}>back</button>
-                <p className="font-semibold text-lg">{activeDate.toLocaleString('en-US', { weekday: 'long' })} {activeDate.toLocaleString('en-US', { day: 'numeric' })}</p>
-                <button className="bg-pink-700 text-white px-2 py-1 rounded-lg" onClick={addDay}>next</button>
+        <div className="bg-blue-950 p-2 rounded-2xl">
+            <div className="flex justify-between mb-1">
+                <button className="bg-pink-700 text-white px-2 py-1 rounded-lg" onClick={lessDay}>
+                    <ChevronsLeft />
+                </button>
+                <p className="font-semibold text-lg text-white">{activeDate.toLocaleString('en-US', { weekday: 'long' })} {activeDate.toLocaleString('en-US', { day: 'numeric' })}</p>
+                <button className="bg-pink-700 text-white px-2 py-1 rounded-lg" onClick={addDay}>
+                    <ChevronsRight />
+                </button>
             </div>
             {availability.length >= 1 ? (
                 availability.map((item) => (

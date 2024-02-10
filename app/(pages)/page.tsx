@@ -19,7 +19,9 @@ const HomePage = () => {
               <p className="font-bold text-2xl">Find a doctor</p>
               <p>Discover Your Healing Partner - Find a Doctor Today.</p>
             </div>
-            <Link href={'/find-a-doctor'} className="mt-2 py-2 flex justify-center w-full md:w-48 bg-pink-700 rounded-lg font-semibold">Find a Doctor</Link>
+            <Link href={'/find-a-doctor'} className="mt-2 py-2 flex justify-center w-full md:w-48 bg-pink-700 rounded-lg font-semibold">
+              Find a Doctor
+            </Link>
           </div>
           <div className="flex flex-col items-center justify-between md:px-16 md:border-x-2 border-pink-700">
             <div className="flex flex-col items-center md:w-full">

@@ -6,15 +6,15 @@ import TopNavbar from "./navbarcomp/topNav"
 const Navbar = () => {
     
     return (  
-      <>
-        <div className="hidden sm:block w-full">
+      <div className="w-full">
+        <div className="hidden sm:block">
           <TopNavbar/>
           <BottomNavbar/>
         </div>
-        <div className="sm:hidden w-full">
+        <div className="sm:hidden">
           <SmallNav/>
         </div>
-      </>
+      </div>
     )
 }
   
