@@ -7,11 +7,11 @@ const Navbar = () => {
     
     return (  
       <>
-        <div className="hidden md:block">
+        <div className="hidden sm:block">
           <TopNavbar/>
           <BottomNavbar/>
         </div>
-        <div className="md:hidden">
+        <div className="sm:hidden">
           <SmallNav/>
         </div>
       </>
