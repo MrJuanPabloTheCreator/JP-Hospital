@@ -8,7 +8,7 @@ const TestLayout = ({
     children: React.ReactNode;
 }) => {
   return (
-    <div className='h-full'>
+    <div className='h-full w-full'>
       <Navbar/>
       <main className='pb-80 bg-custwhite'>
         {children} 
