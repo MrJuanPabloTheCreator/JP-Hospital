@@ -167,7 +167,7 @@ const ClientForm: React.FC = () => {
             </div>
 
             {formData.email !== formData.confirmEmail && <p className="text-red mb-4">The emails provided do not match.</p>}
-            <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+            <button type="submit" className="w-full bg-pink-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
         </form>
 );
 };

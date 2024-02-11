@@ -1,10 +1,9 @@
-import Image from "next/image"
 
 const AboutPage = () => {
 
     return (
       <div className="p-5 flex flex-col items-center font-medium">
-        <Image src="istock-490882339_screen.jpg" alt="noshe" className="max-w-[1000px]"/>
+        <img src="istock-490882339_screen.jpg" alt="noshe" className="max-w-[1000px]"/>
         <div className="flex flex-col bg-white p-5 rounded-lg mt-2 max-w-[1000px]">
           <h1 className="font-bold text-4xl text-blue-950">About JP Cerda Hospital</h1>
           <p>
