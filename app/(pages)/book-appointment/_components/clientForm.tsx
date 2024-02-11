@@ -82,7 +82,7 @@ const ClientForm: React.FC = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
+        <form onSubmit={handleSubmit} className="max-w-md ml-10">
             <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
 
             <div className="mb-4">

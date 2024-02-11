@@ -1,7 +1,6 @@
 "use client"
 
 import getDoctorInfo from "@/app/actions/getDoctorInfo";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react";
 
@@ -10,9 +9,13 @@ const SummaryInfo = () => {
     const params = useSearchParams()
 
     const doctor_id = params.get('doctor_id');
-    const date = params.get('date');
     const time = params.get('time');
-    const time_slot = params.get('time-slot');
+    var date;
+    if(params.get('date')){
+        date = params.get('date')
+    } else if(params.get('udate')){
+        date = params.get('udate')
+    }
 
     const [formData, setFormData] = useState<{ 
         doctor_id: number,
@@ -37,22 +40,20 @@ const SummaryInfo = () => {
     }, [doctor_id])
 
     return (
-        <div>
-            <div className='flex bg-slate-300'>
-                <img src={`/Screenshots/${formData?.photo_path}`} alt='Photo' className='rounded-lg w-40'/>
-                <div className='flex flex-col ml-5 text-black w-60'>
-                    <h1 className='font-bold text-3xl'>Dr.{formData?.last_name}, {formData?.name}</h1>
-                    <div className='font-medium text-md'>
-                        <p>{formData?.specialty_name_1} & {formData?.specialty_name_2}</p>
-                    </div>
+        <div className="text-lg font-semibold">
+            <img src={`/Screenshots/${formData?.photo_path}`} alt='Photo' className='rounded-lg w-40'/>
+            <div className='flex flex-col text-black w-60 my-3'>
+                <h1 className='font-bold text-3xl'>Dr.{formData?.last_name}, {formData?.name}</h1>
+                <div className='font-medium'>
+                    <p>{formData?.specialty_name_1} & {formData?.specialty_name_2}</p>
                 </div>
             </div>
             <div>
-                <h1>Date & Time</h1>
+                <h1 className="text-slate-600">Date and Time</h1>
                 <p>{date} / {time}</p>
             </div>
             <div>
-                <h1>Where?</h1>
+                <h1 className="text-slate-600">Location</h1>
                 <p>{formData?.city_name}</p>
             </div>
         </div>
