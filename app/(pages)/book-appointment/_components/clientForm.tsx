@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import { toast } from "react-hot-toast";
 
 const ClientForm: React.FC = () => {
     const params = useSearchParams()
@@ -65,6 +66,7 @@ const ClientForm: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        validateSchedule()
         const submitClient = await fetch('/api/appointment', {
             method: 'POST',
             body: JSON.stringify(formData)
@@ -100,7 +102,8 @@ const ClientForm: React.FC = () => {
             // const confirmationResponse = await confirmationEmail.json();
             // console.log(confirmationResponse)
         }
-        // router.push(`/`);    
+        toast.success('Booking Confirmed!')
+        router.push(`/`);    
     };
 
     return (

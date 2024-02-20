@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import LocationInput from "./_components/locationInput";
 
-
 const FindDoctor = () => {
   const [formData, setFormData] = useState<Array<{ specialty_id: number, specialty_name: string }>>([]);
   const [specialtyId, setSpecialtyId] = useState<Number | undefined>();
