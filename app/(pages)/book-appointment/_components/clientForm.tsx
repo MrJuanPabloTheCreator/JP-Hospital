@@ -55,29 +55,35 @@ const ClientForm: React.FC = () => {
         const responseClient = await submitClient.json();
         if(responseClient.affectedRows === 1){
             console.log('Appointment Succesfull');
-        }
 
-        if(params.get('date')){
-            const submitSchedule = await fetch('/api/appointment/new', {
+            if(params.get('date')){
+                const submitSchedule = await fetch('/api/appointment/new', {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                })
+                const response = await submitSchedule.json();
+                if(response.affectedRows === 1){
+                    console.log('New Dr.Schedule Succesfull');
+                }
+
+            } else if(params.get('udate')){
+                const updateSchedule = await fetch('/api/appointment/update', {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                })
+                const response = await updateSchedule.json();
+                if(response.affectedRows === 1){
+                    console.log('Updated Dr.Schedule Succesfull');
+                }
+            }
+            const confirmationEmail = await fetch('/api/email', {
                 method: 'POST',
                 body: JSON.stringify(formData)
             })
-            const response = await submitSchedule.json();
-            if(response.affectedRows === 1){
-                console.log('New Dr.Schedule Succesfull');
-            }
-
-        } else if(params.get('udate')){
-            const updateSchedule = await fetch('/api/appointment/update', {
-                method: 'POST',
-                body: JSON.stringify(formData)
-            })
-            const response = await updateSchedule.json();
-            if(response.affectedRows === 1){
-                console.log('Updated Dr.Schedule Succesfull');
-            }
+            const response = await confirmationEmail.json();
+            console.log(response)
         }
-        router.push(`/`);
+        // router.push(`/`);
     
     };
 
