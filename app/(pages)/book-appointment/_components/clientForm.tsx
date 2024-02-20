@@ -1,7 +1,7 @@
 "use client"
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ClientForm: React.FC = () => {
     const params = useSearchParams()
@@ -10,12 +10,29 @@ const ClientForm: React.FC = () => {
     const doctor_id = params.get('doctor_id');
     const time = params.get('time');
     const time_slot = params.get('time-slot');
-    var date;
+    
+    let date: string | null = null;
     if(params.get('date')){
         date = params.get('date')
     } else if(params.get('udate')){
         date = params.get('udate')
     }
+
+    const validateSchedule = async () => {
+        const submitClient = await fetch(`/api/validate/${doctor_id}?time_slot=${time_slot}&date=${date}`, {
+            method: 'GET',
+        })
+        const responseClient = await submitClient.json();
+        console.log(responseClient)
+        if(responseClient === 'Records Found'){
+            router.push('/find-a-doctor/')
+        }
+    }
+
+    useEffect(() => {
+        validateSchedule();
+    }, [])
+    
 
     const [formData, setFormData] = useState({
         doctor_id: doctor_id,
@@ -76,15 +93,14 @@ const ClientForm: React.FC = () => {
                     console.log('Updated Dr.Schedule Succesfull');
                 }
             }
-            const confirmationEmail = await fetch('/api/email', {
-                method: 'POST',
-                body: JSON.stringify(formData)
-            })
-            const response = await confirmationEmail.json();
-            console.log(response)
+            // const confirmationEmail = await fetch('/api/email', {
+            //     method: 'POST',
+            //     body: JSON.stringify(formData)
+            // })
+            // const confirmationResponse = await confirmationEmail.json();
+            // console.log(confirmationResponse)
         }
-        // router.push(`/`);
-    
+        // router.push(`/`);    
     };
 
     return (
