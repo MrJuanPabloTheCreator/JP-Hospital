@@ -1,5 +1,6 @@
 import { User } from "lucide-react"
 import { FaLinkedin, FaGithub, FaUserCircle } from "react-icons/fa";
+import { MdWork } from "react-icons/md";
 import Link from "next/link"
 
 const TopNavbar = () => {
@@ -17,7 +18,7 @@ const TopNavbar = () => {
                     <FaGithub size={'36px'}/>
                 </Link>
                 <Link className="hover:text-pink-700" href={'https://juan-pablo-portfolio.vercel.app/'}>
-                    <FaUserCircle size={'36px'}/>
+                    <MdWork size={'36px'}/>
                 </Link>
             </div>
         </div>

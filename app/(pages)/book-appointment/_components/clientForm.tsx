@@ -51,7 +51,6 @@ const ClientForm: React.FC = () => {
         state: '',
         zipCode: '',
         phoneNumber: '',
-        phoneType: '',
         email: '',
         confirmEmail: ''
     });
@@ -141,7 +140,6 @@ const ClientForm: React.FC = () => {
                     <option value="">Please select a gender.</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
-                    <option value="X">X</option>
                 </select>
             </div>
 
@@ -172,16 +170,6 @@ const ClientForm: React.FC = () => {
             </div>
 
             <div className="mb-4">
-                <label className="block mb-1">Phone Type</label>
-                <select name="phoneType" value={formData.phoneType} onChange={handleChange} required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
-                    <option value="">Please select a phone type.</option>
-                    <option value="Mobile">Mobile</option>
-                    <option value="Home">Home</option>
-                    <option value="Work">Work</option>
-                </select>
-            </div>
-
-            <div className="mb-4">
                 <label htmlFor="email" className="block mb-1">Email</label>
                 <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" />
             </div>
@@ -192,7 +180,7 @@ const ClientForm: React.FC = () => {
             </div>
 
             {formData.email !== formData.confirmEmail && <p className="text-red mb-4">The emails provided do not match.</p>}
-            <button type="submit" className="w-full bg-pink-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+            <button type="submit" className="w-full bg-pink-700 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none">Submit</button>
         </form>
 );
 };

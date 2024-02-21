@@ -1,5 +1,7 @@
 import Link from "next/link"
 import ImageSlider from "./components/slider"
+import { FaLocationDot, FaUserDoctor } from "react-icons/fa6";
+import { FaHospital } from "react-icons/fa";
 
 
 const HomePage = () => {
@@ -33,10 +35,33 @@ const HomePage = () => {
           </div>
           <div className="flex flex-col items-center justify-between md:px-16">
             <div className="flex flex-col items-center md:w-full">
-              <p className="font-bold text-2xl">Patien Care</p>
+              <p className="font-bold text-2xl">Patient Care</p>
               <p>Your Wellness, Our Priority - Elevating Patient Care.</p>
             </div>
             <Link href={'/about'} className="mt-2 py-2 flex justify-center w-full md:w-48 bg-pink-700 rounded-lg font-semibold">Learn More</Link>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col w-full py-20 space-y-5 items-center justify-center">
+        <h1 className="font-bold text-3xl text-blue-900">Explore</h1>
+        <div className="flex justify between w-[1000px] justify-between text-blue-900">
+          <div className="flex items-center w-64 h-64 rounded-full border-[5px] border-blue-900">
+            <div className="m-5 h-full w-full flex flex-col space-y-2 items-center justify-center">
+              <FaHospital size={44}/>
+              <p className="text-xl font-semibold">20 Specialties</p>
+            </div>
+          </div>
+          <div className="flex items-center w-64 h-64 rounded-full border-[5px] border-blue-900">
+            <div className="m-5 h-full w-full flex flex-col space-y-2 items-center justify-center">
+              <FaUserDoctor size={44}/>
+              <p className="text-xl font-semibold">Over 100 Professionals</p>
+            </div>
+          </div>
+          <div className="flex items-center w-64 h-64 rounded-full border-[5px] border-blue-900">
+            <div className="m-5 h-full w-full flex flex-col space-y-2 items-center justify-center">
+              <FaLocationDot size={44}/>
+              <p className="text-xl font-semibold">Presence in 10 Cities</p>
+            </div>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const BottomNavbar = () => {
                 <Link href={"/find-a-doctor"} className={`flex justify-center py-4 items-center border-l-2 px-7 ${isLinkActive("/find-a-doctor") ? "bg-pink-700 text-white" : ""}`}>
                     Find a Doctor
                 </Link>
-                {/* <Link href={"/request-appointment"} className={`flex justify-center py-4 items-center border-l-2 px-7 ${isLinkActive("/request-appointment") ? "bg-pink-700 " : ""}`}>
+                {/* <Link href={"/specialties"} className={`flex justify-center py-4 items-center border-l-2 px-7 ${isLinkActive("/specialties") ? "bg-pink-700 " : ""}`}>
                     Request an Appointment
                 </Link>
                 <Link href={"/locations"} className={`flex justify-center py-4 items-center border-l-2 px-7 ${isLinkActive("/locations") ? "bg-pink-700 " : ""}`}>

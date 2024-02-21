@@ -40,20 +40,20 @@ const SummaryInfo = () => {
     }, [doctor_id])
 
     return (
-        <div className="text-lg font-semibold">
-            <img src={`/Screenshots/${formData?.photo_path}`} alt='Photo' className='rounded-lg w-40'/>
-            <div className='flex flex-col text-black w-60 my-3'>
-                <h1 className='font-bold text-3xl'>Dr.{formData?.last_name}, {formData?.name}</h1>
-                <div className='font-medium'>
+        <div className="text-md text-slate-600 font-semibold flex flex-col space-y-3">
+            <div className='flex flex-col w-60'>
+                <img src={`/Screenshots/${formData?.photo_path}`} alt='Photo' className='rounded-lg w-40'/>
+                <h1 className='font-bold text-3xl text-black'>Dr.{formData?.last_name}, {formData?.name}</h1>
+                <div>
                     <p>{formData?.specialty_name_1} & {formData?.specialty_name_2}</p>
                 </div>
             </div>
             <div>
-                <h1 className="text-slate-600">Date and Time</h1>
+                <h1 className="text-black">Date and Time</h1>
                 <p>{date} / {time}</p>
             </div>
             <div>
-                <h1 className="text-slate-600">Location</h1>
+                <h1 className="text-black">Location</h1>
                 <p>{formData?.city_name}</p>
             </div>
         </div>

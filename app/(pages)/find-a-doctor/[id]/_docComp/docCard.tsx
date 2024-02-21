@@ -1,7 +1,7 @@
 import React from 'react'
 import DoctorAvailability from './docAvailability';
+import { FaMapPin } from 'react-icons/fa';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
 
 interface Doctor {
     doctor_id: number,
@@ -27,19 +27,17 @@ const DoctorCard : React.FC<DoctorCardProps> = ({ data }) => {
                 <div key={item.doctor_id} className="flex justify-between items-center p-10 mx-48 bg-white rounded-lg mb-2 hover:shadow-lg">
                     <div className='flex w-[550px]'>
                             <img src={`/Screenshots/${item.photo_path}`} alt='Photo' className='rounded-lg'/>
-                        <div className='flex flex-col justify-center ml-5 text-black text-lg'>
-                            <h1 className='font-bold text-3xl'>Dr.{item.last_name}, {item.name}</h1>
-                            <div className='font-medium'>
-                                <p>{item.email}</p>
-                                <p>{item.phone}</p>
-                            </div>
-                            <div className='font-semibold'>
-                                <p>{item.specialty_name_1} & {item.specialty_name_2}</p>
-                                <div className='flex items-center'>
-                                    <MapPin size={'20'}/>
-                                    <p>{item.city_name}</p>
-                                </div>
-                            </div>
+                        <div className='flex flex-col justify-center ml-5'>
+                            <Link href={`/find-a-doctor/doctors/search?id=${item.doctor_id}`} className='font-bold text-3xl text-blue-900 hover:underline'>Dr.{item.last_name}, {item.name}</Link>
+                            <a target="_blank" href={'/specialties'} className='text-lg font-sm hover:underline'>{item.specialty_name_1} & {item.specialty_name_2}</a>
+                            <a className='hover:underline' href={`mailto:${item.email}`}>{item.email}</a>
+                            <p>{item.phone}</p>
+                            <div className='flex items-center font-bold hover:underline'>
+                                <FaMapPin size={'20'} className='text-pink-700'/>
+                                <a target="_blank" href={`https://www.google.com/maps/place/${item.city_name}`}>
+                                    {item.city_name}
+                                </a>
+                            </div>                     
                         </div>
                     </div>
                     <div className='flex flex-col justify-center items-center'>

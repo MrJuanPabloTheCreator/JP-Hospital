@@ -11,7 +11,7 @@ const TestLayout = ({
   return (
     <div className='h-full'>
       <Navbar/>
-      <main className='pb-80 bg-custwhite w-full'>
+      <main className='pb-64 bg-custwhite w-full'>
         {children} 
       </main>
       <Toaster position='top-center'/>
