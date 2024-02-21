@@ -16,7 +16,7 @@ const TopNavbar = () => {
                 <Link className="hover:text-pink-700" href={'https://github.com/MrJuanPabloTheCreator'}>
                     <FaGithub size={'36px'}/>
                 </Link>
-                <Link className="hover:text-pink-700" href={'https://main.d1wqsrgpxi6f4p.amplifyapp.com/'}>
+                <Link className="hover:text-pink-700" href={'https://juan-pablo-portfolio.vercel.app/'}>
                     <FaUserCircle size={'36px'}/>
                 </Link>
             </div>

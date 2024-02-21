@@ -28,7 +28,8 @@ const HomePage = () => {
               <p className="font-bold text-2xl">Book an appointment</p>
               <p>Book an Appointment now with a JP Hospital doctor.</p>
             </div>
-            <Link href={'/request-appointment'} className="mt-2 py-2 flex justify-center w-full md:w-48 bg-pink-700 rounded-lg font-semibold">Book an Appointment</Link>
+            {/* <Link href={'/request-appointment'} className="mt-2 py-2 flex justify-center w-full md:w-48 bg-pink-700 rounded-lg font-semibold">Book an Appointment</Link> */}
+            <div className="mt-2 py-2 flex justify-center w-full md:w-48 bg-pink-700 rounded-lg font-semibold">Book an Appointment</div>
           </div>
           <div className="flex flex-col items-center justify-between md:px-16">
             <div className="flex flex-col items-center md:w-full">
