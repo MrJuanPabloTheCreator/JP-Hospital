@@ -20,7 +20,7 @@ interface DoctorCardProps {
     data: Doctor[];
 }
 
-const DoctorCard : React.FC<DoctorCardProps> = ({ data }) => {
+const DoctorCard: React.FC<DoctorCardProps> = ({ data }) => {
     return (
         <div className="w-full">
             {data.map((item) => (
