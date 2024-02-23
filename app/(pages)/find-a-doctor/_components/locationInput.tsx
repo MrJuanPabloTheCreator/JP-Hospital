@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -21,7 +20,9 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setUserLocation(value);
-    setPlaceholderValue(value)
+    if (!value.trim()) {
+      setPlaceholderValue('Current Location');
+    }
     setShowLocationButton(false);
   };
 
@@ -43,10 +44,6 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
     }
   }
 
-  const handleInputClick = () => {
-    setShowLocationButton(!showLocationButton)
-  };
-
   useEffect(() => {
     onSelect(userLocation);
   }, [userLocation, placeholderValue]);
@@ -55,12 +52,12 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
     <div className='flex flex-col'>
       <input
         onChange={handleInputChange}
-        onClick={handleInputClick}
-        placeholder={placeholderValue || 'Zip Code / Current Location'}
+        onClick={() => setShowLocationButton(!showLocationButton)}
+        placeholder={placeholderValue ? placeholderValue : 'Zip Code / Current Location'}
         className={`w-full ${style} pl-2 py-2`}
       />
       {showLocationButton && (
-        <Button className='absolute mt-12 w-[290px] bg-white text-black hover:text-white' onClick={() => {getUserLocation(); handleInputClick(); setPlaceholderValue('Current Location')}}>Allow Current Location</Button>
+        <Button className='absolute mt-12 w-[290px] bg-white text-black hover:text-white' onClick={() => (getUserLocation(), setShowLocationButton(!showLocationButton))}>Allow Current Location</Button>
       )}
     </div>
   );
