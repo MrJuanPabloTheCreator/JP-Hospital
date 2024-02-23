@@ -20,7 +20,10 @@ const SpecialtiesPage = () => {
   
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="flex flex-col w-full justify-center items-center space-y-10">
+      <div className="mt-10 flex flex-col items-center justify-center py-16 bg-blue-950 w-full">
+        <h1 className="text-6xl font-bold text-white">All Specialties</h1>
+      </div>
       <div className="grid grid-cols-3 gap-2 w-[1000px]">
         {specialties.map((item, index) => (
           <div key={item.specialty_id}>

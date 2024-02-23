@@ -7,6 +7,7 @@ import DoctorCard from "./_docComp/docCard";
 import getZipCords from "@/app/actions/getZipCord";
 import getClosestDoctor from "@/app/actions/getClosestDoctors";
 import { FaMapPin } from "react-icons/fa";
+import RefineSearch from "./_docComp/refineSearch";
 
 
 const SearchPage = () => {
@@ -70,7 +71,7 @@ const SearchPage = () => {
 
     useEffect(() => {
         getPageInfo()
-    }, [])
+    }, [id, userLatitude, userLongitude, postalCode])
 
     useEffect(() => {
         console.log('Closest Location', closestDoctor)
@@ -78,8 +79,11 @@ const SearchPage = () => {
     
     return (
         <div className="flex flex-col">
-            <div className="flex flex-col items-center justify-center">
-                <h1 className="flex text-4xl font-bold text-white bg-blue-950 mt-10 mb-5 pt-28 pb-20 w-full justify-center">{specialty}, {formData[0]?.city_name} <FaMapPin size={36} className="text-pink-700"/></h1>  
+            <h1 className="flex text-4xl font-bold text-white bg-blue-950 mt-10 mb-5 pt-28 pb-20 w-full justify-center">{specialty} in {formData[0]?.city_name} <FaMapPin size={36} className="text-pink-700"/></h1>  
+            <div className="flex space-x-5 mx-10">
+                <div className="w-[400px] bg-white shadow-md">
+                    <RefineSearch/>
+                </div>
                 <DoctorCard data={formData}/>
             </div>
         </div>

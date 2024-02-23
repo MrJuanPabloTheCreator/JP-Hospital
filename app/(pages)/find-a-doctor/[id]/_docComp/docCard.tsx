@@ -22,11 +22,11 @@ interface DoctorCardProps {
 
 const DoctorCard: React.FC<DoctorCardProps> = ({ data }) => {
     return (
-        <div className="w-full">
+        <div className="w-full space-y-3">
             {data.map((item) => (
-                <div key={item.doctor_id} className="flex justify-between items-center p-10 mx-48 bg-white rounded-lg mb-2 hover:shadow-lg">
+                <div key={item.doctor_id} className="flex justify-between items-center p-10 bg-white hover:shadow-lg">
                     <div className='flex w-[550px]'>
-                            <img src={`/Screenshots/${item.photo_path}`} alt='Photo' className='rounded-lg'/>
+                            <img src={`/Screenshots/${item.photo_path}`} alt='Photo'/>
                         <div className='flex flex-col justify-center ml-5'>
                             <Link href={`/find-a-doctor/doctors/search?id=${item.doctor_id}`} className='font-bold text-3xl text-blue-900 hover:underline'>Dr.{item.last_name}, {item.name}</Link>
                             <a target="_blank" href={'/specialties'} className='text-lg font-sm hover:underline'>{item.specialty_name_1} & {item.specialty_name_2}</a>

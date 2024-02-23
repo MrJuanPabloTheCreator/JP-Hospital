@@ -52,11 +52,14 @@ const DoctorAvailability: React.FC<DoctorAvailabilityProps> = ({doctor_id}) => {
 
     return (
         <div>
-            <div className="flex justify-between mx-2">
+            <div className="flex justify-between items-center mx-2">
                 <button className="bg-pink-700 text-white px-2 py-1 rounded-lg" onClick={lessDay}>
                     <ChevronsLeft />
                 </button>
-                <p className="font-bold text-lg text-blue-900">{activeDate.toLocaleString('en-US', { weekday: 'long' })} {activeDate.toLocaleString('en-US', { day: 'numeric' })}</p>
+                <div className="flex flex-col">
+                    <p className="font-semibold text-md text-blue-900">{activeDate.toLocaleString('en-US', { weekday: 'long' })}</p>
+                    <p className="font-bold text-lg text-blue-900">{activeDate.toLocaleString('en-US', { month: 'short' })} {activeDate.toLocaleString('en-US', { day: 'numeric' })}</p>
+                </div>
                 <button className="bg-pink-700 text-white px-2 py-1 rounded-lg" onClick={addDay}>
                     <ChevronsRight />
                 </button>
