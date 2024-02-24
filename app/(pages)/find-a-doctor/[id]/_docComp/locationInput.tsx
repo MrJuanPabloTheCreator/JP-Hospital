@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { BsX } from "react-icons/bs";
+import { BsX } from 'react-icons/bs';
 
 interface LocationInputProps {
   onSelect: ( userLocation: GeolocationCoordinates | string | void | undefined) => void,
@@ -18,7 +18,7 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
   const [showLocationButton, setShowLocationButton] = useState<boolean>(false);
   const [placeholderValue, setPlaceholderValue] = useState<string>();
   const [outline, setOutline] = useState<boolean>(false);
-  const [userLocation, setUserLocation] = useState<GeolocationCoordinates | string>();
+  const [userLocation, setUserLocation] = useState<GeolocationCoordinates | string | void>(postalCode ? postalCode : getUserLocation);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -38,20 +38,21 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
     setPlaceholderValue('Current Location')
   }
 
-  function getUserLocation(){ 
+  function getUserLocation(){
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const location = position.coords;
           setUserLocations(location)
-          // console.log("Accuracy:", location.accuracy, "meters");      
+          return location
+          // console.log("Accuracy:", accuracy, "meters");      
         },
         (error) => {       
-          console.error("Error getting location:", error.message);
+          return console.error("Error getting location:", error.message);
         }
       );
     } else {      
-      console.log("Geolocation is not supported by this browser");
+      return console.log("Geolocation is not supported by this browser");
     }  
   }
 
@@ -62,7 +63,7 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
   
   return (
     <div className='flex flex-col'>
-      <div onBlur={() => (setOutline(false))} onClick={() => (setOutline(true), setShowLocationButton(!showLocationButton))} className={`flex px-2 bg-white ${style} ${outline ? '': ''}`}>
+      <div onBlur={() => setOutline(false)} onClick={() => (setOutline(true), setShowLocationButton(!showLocationButton))} className={`flex border-2 px-2 bg-white ${style} ${outline ? 'border-black': ''}`}>
         <input
           value={placeholderValue}
           onChange={handleInputChange}
@@ -73,15 +74,13 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
           <button onClick={() => resetInputValue()}><BsX size={24} /></button>
         )}
       </div>
-      {showLocationButton && !placeholderValue && (
-        <div>
-          <Button 
-            className='absolute mt-1 w-[200px] bg-white text-black hover:text-white' 
-            onClick={() => (getUserLocation(), setShowLocationButton(false))}
-          >
-            Allow Current Location
-          </Button>
-        </div>
+      {showLocationButton && placeholderValue === '' &&(
+        <Button 
+          className='absolute mt-12 w-[290px] bg-slate-200 text-black hover:text-white' 
+          onClick={() => (getUserLocation(), setShowLocationButton(false))}
+        >
+          Allow Current Location
+        </Button>
       )}
     </div>
   );

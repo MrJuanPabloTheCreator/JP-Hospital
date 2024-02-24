@@ -48,13 +48,13 @@ const HomePage = () => {
           <div className="flex items-center w-64 h-64 rounded-full border-[5px] border-blue-900">
             <div className="m-5 h-full w-full flex flex-col space-y-2 items-center justify-center">
               <FaHospital size={44}/>
-              <p className="text-xl font-semibold">20 Specialties</p>
+              <a href="/specialties" className="text-xl font-semibold hover:underline">20 Specialties</a>
             </div>
           </div>
           <div className="flex items-center w-64 h-64 rounded-full border-[5px] border-blue-900">
             <div className="m-5 h-full w-full flex flex-col space-y-2 items-center justify-center">
               <FaUserDoctor size={44}/>
-              <p className="text-xl font-semibold">Over 100 Professionals</p>
+              <a href="/find-a-doctor/doctors" className="text-xl font-semibold hover:underline">Over 100 Professionals</a>
             </div>
           </div>
           <div className="flex items-center w-64 h-64 rounded-full border-[5px] border-blue-900">

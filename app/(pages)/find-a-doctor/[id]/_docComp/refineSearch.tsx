@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { VscSettings } from "react-icons/vsc";
-import LocationInput from "../../_components/locationInput";
+import LocationInput from "@/app/(pages)/find-a-doctor/[id]/_docComp/locationInput";
 
 
 const RefineSearch = () => {
@@ -38,7 +38,7 @@ const RefineSearch = () => {
         }
     };
 
-    const handleLocationSelect = (currentLocation: GeolocationCoordinates | string | undefined) => {
+    const handleLocationSelect = (currentLocation: GeolocationCoordinates | string | void | undefined) => {
         if (typeof currentLocation === 'object'){
           setLocation(currentLocation)
           console.log('GeolocationCoordinates =>', currentLocation);
@@ -87,7 +87,7 @@ const RefineSearch = () => {
                     ) : ('')
                 }
             </div>
-            <LocationInput onSelect={handleLocationSelect} style="border-2"/>
+            <LocationInput onSelect={handleLocationSelect} style=""/>
             <button className="py-2 text-xl font-semibold text-white bg-pink-700" onClick={search}>Search</button>
         </div>
     )

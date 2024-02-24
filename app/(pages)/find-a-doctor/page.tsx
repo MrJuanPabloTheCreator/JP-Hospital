@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import LocationInput from "./_components/locationInput";
+import LocationInput from "@/app/(pages)/find-a-doctor/_components/locationInput";
 import toast from "react-hot-toast";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
@@ -35,7 +35,7 @@ const FindDoctor = () => {
     }
   };
 
-  const handleLocationSelect = (currentLocation: GeolocationCoordinates | string | undefined) => {
+  const handleLocationSelect = (currentLocation: GeolocationCoordinates | string | undefined | void) => {
     if (typeof currentLocation === 'object'){
       setLocation(currentLocation)
       console.log('GeolocationCoordinates =>', currentLocation);
@@ -84,7 +84,7 @@ const FindDoctor = () => {
                     ) : ('')
                 }
             </div>
-            <LocationInput onSelect={handleLocationSelect} style={'rounded-lg'}/>
+            <LocationInput onSelect={handleLocationSelect} style={'rounded-lg outline-white'}/>
             <Button className=" bg-pink-700" onClick={search}>
               Search
             </Button>
