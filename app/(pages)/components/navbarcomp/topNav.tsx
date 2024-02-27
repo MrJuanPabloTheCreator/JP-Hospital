@@ -11,13 +11,13 @@ const TopNavbar = () => {
                 <p className="text-pink-700 mr-1">JP</p> Hospital
             </Link>
             <div className="grid grid-cols-3 gap-2">
-                <Link className="hover:text-pink-700" href={'https://www.linkedin.com/in/juanpcerda/'}>
+                <Link className="hover:text-pink-700" target="_blank" href={'https://www.linkedin.com/in/juanpcerda/'}>
                     <FaLinkedin size={'36px'}/>
                 </Link>
-                <Link className="hover:text-pink-700" href={'https://github.com/MrJuanPabloTheCreator'}>
+                <Link className="hover:text-pink-700" target="_blank" href={'https://github.com/MrJuanPabloTheCreator'}>
                     <FaGithub size={'36px'}/>
                 </Link>
-                <Link className="hover:text-pink-700" href={'https://juan-pablo-portfolio.vercel.app/'}>
+                <Link className="hover:text-pink-700" target="_blank" href={'https://juan-pablo-portfolio.vercel.app/'}>
                     <MdWork size={'36px'}/>
                 </Link>
             </div>
