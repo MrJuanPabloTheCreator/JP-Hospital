@@ -16,7 +16,7 @@ const LocationInput: React.FC<LocationInputProps> = ({ onSelect, style }) => {
   const postalCode = params.get('zip-code')
 
   const [showLocationButton, setShowLocationButton] = useState<boolean>(false);
-  const [placeholderValue, setPlaceholderValue] = useState<string>();
+  const [placeholderValue, setPlaceholderValue] = useState<string>(postalCode ? postalCode : 'Current Location');
   const [outline, setOutline] = useState<boolean>(false);
   const [userLocation, setUserLocation] = useState<GeolocationCoordinates | string | void>(postalCode ? postalCode : getUserLocation);
 
