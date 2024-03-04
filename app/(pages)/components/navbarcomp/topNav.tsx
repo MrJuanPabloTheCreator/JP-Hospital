@@ -6,7 +6,7 @@ import Link from "next/link"
 const TopNavbar = () => {
     
     return (
-        <div className="flex justify-between bg-white text-blue-950 font-bold py-3 xl:mx-20 lg:mx-10 mx-5">
+        <div className="flex justify-between bg-white text-blue-950 font-bold py-3 mx-5 lg:mx-10 xl:mx-20 2xl:py-6 3xl:mx-24">
             <Link href={'/'} className="flex items-center text-3xl">
                 <p className="text-pink-700 mr-1">JP</p> Hospital
             </Link>

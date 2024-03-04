@@ -51,7 +51,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
       <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}>
         {images.map((image, index) => (
           <div key={index} className="flex-shrink-0 w-full relative">
-            <img src={image} alt={`Slide ${index}`} className="object-cover w-full h-[390px] sm:h-[180px] md:h-[220px] lg:h-[320px] xl:h-[370px]"/>
+            <img src={image} alt={`Slide ${index}`} className="object-cover w-full h-[390px] sm:h-[180px] md:h-[220px] lg:h-[320px] xl:h-[370px] 2xl:h-[370px] 3xl:h-[470px]"/>
             <div className="absolute bottom-0 pb-8 pt-36 p-2 text-white w-full bg-gradient-to-t from-black to-tansparent">
               <div className='flex flex-col items-start md:ml-44 ml-10'>
                 <h3 className="text-3xl">{imageContent[index].h}</h3>
